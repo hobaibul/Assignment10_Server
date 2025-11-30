@@ -57,18 +57,7 @@ async function run() {
     })
 
 
-       app.put('/hobby/:id', async(req,res)=>{
-      const id = req.params.id;
-      const filter = {_id: new ObjectId(id)};
-      const option = {upsert:true};
-      const updatedHobby = req.body;
-      const updatedDoc = {
-        $set: updatedCoffee
-      } 
-        const result = await hobbyCollection.updateOne(filter,updatedDoc,option);
-
-      res.send(result);
-    })
+  
 
       app.delete('/hobby/:id', async(req,res)=>{
       console.log(req.params);
