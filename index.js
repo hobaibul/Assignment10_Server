@@ -42,7 +42,12 @@ async function run() {
       res.send(result);
     });
 
-
+    app.post("/hobby", async (req, res) => {
+      const newHobby = req.body;
+      console.log(newHobby);
+      const result = await hobbyCollection.insertOne(newHobby);
+      res.send(result);
+    });
 
      app.get('/hobby/:id', async(req,res)=>{
       const id = req.params.id;
