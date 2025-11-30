@@ -42,12 +42,7 @@ async function run() {
       res.send(result);
     });
 
-    app.post("/hobby", async (req, res) => {
-      const newHobby = req.body;
-      console.log(newHobby);
-      const result = await hobbyCollection.insertOne(newHobby);
-      res.send(result);
-    });
+
 
      app.get('/hobby/:id', async(req,res)=>{
       const id = req.params.id;
@@ -70,7 +65,13 @@ async function run() {
       res.send(result);
     })
 
-  
+      app.delete('/hobby/:id', async(req,res)=>{
+      console.log(req.params);
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)}
+      const result = await hobbyCollection.deleteOne(query)
+      res.send(result);
+    })
 
   } finally {
     // Ensures that the client will close when you finish/error
