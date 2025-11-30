@@ -70,13 +70,7 @@ async function run() {
       res.send(result);
     })
 
-      app.delete('/hobby/:id', async(req,res)=>{
-      console.log(req.params);
-      const id = req.params.id;
-      const query = {_id: new ObjectId(id)}
-      const result = await hobbyCollection.deleteOne(query)
-      res.send(result);
-    })
+  
 
   } finally {
     // Ensures that the client will close when you finish/error
